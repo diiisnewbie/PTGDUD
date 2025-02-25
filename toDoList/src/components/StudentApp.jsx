@@ -103,7 +103,7 @@ const StudentApp = () => {
       <ul>
         {students.map((student) => (
           <li key={student.id}>
-            <span>{student.name} - {student.grade}</span>
+            <span>{student.name} - {student.grade} Điểm</span>
             <button onClick={() => handleEditClick(student)}>Sửa</button>
             <button onClick={() => handleDeleteStudent(student.id)}>Xoá</button>
           </li>

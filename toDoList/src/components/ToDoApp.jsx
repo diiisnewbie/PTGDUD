@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useMemo, useReducer, useRef } from "react";
 
-// Reducer function to handle actions
 const todoReducer = (state, action) => {
   switch (action.type) {
     case "ADD_TODO":
@@ -21,7 +20,7 @@ const TodoApp = () => {
   const [input, setInput] = useState("");
   const inputRef = useRef(null);
 
-  // Load todos from localStorage on initial render
+
   useEffect(() => {
     const storedTodos = JSON.parse(localStorage.getItem("todos"));
     if (storedTodos) {
@@ -29,14 +28,12 @@ const TodoApp = () => {
     }
   }, []);
 
-  // Save todos to localStorage whenever the list changes
   useEffect(() => {
     if (todos.length > 0) {
       localStorage.setItem("todos", JSON.stringify(todos));
     }
   }, [todos]);
 
-  // Filter completed and incomplete todos using useMemo
   const filteredTodos = useMemo(() => {
     return {
       completed: todos.filter(todo => todo.completed),
@@ -47,8 +44,8 @@ const TodoApp = () => {
   const handleAddTodo = () => {
     if (input.trim() !== "") {
       dispatch({ type: "ADD_TODO", text: input });
-      setInput(""); // Clear input after adding
-      inputRef.current.focus(); // Focus back to input
+      setInput(""); 
+      inputRef.current.focus(); 
     }
   };
 
@@ -77,7 +74,6 @@ const TodoApp = () => {
           <li key={todo.id}>
             <span
               onClick={() => handleToggleTodo(todo.id)}
-              style={{ textDecoration: todo.completed ? "line-through" : "none" }}
             >
               {todo.text}
             </span>
@@ -92,7 +88,6 @@ const TodoApp = () => {
           <li key={todo.id}>
             <span
               onClick={() => handleToggleTodo(todo.id)}
-              style={{ textDecoration: todo.completed ? "line-through" : "none" }}
             >
               {todo.text}
             </span>
