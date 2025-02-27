@@ -47,7 +47,7 @@ const StudentApp = () => {
   }, [students]);
 
   const handleAddStudent = () => {
-    if (name.trim() !== "" && grade.trim() !== "") {
+    if (name.trim() !== "") {
       dispatch({ type: "ADD_STUDENT", name, grade });
       setName("");
       setGrade("");
@@ -56,7 +56,7 @@ const StudentApp = () => {
   };
 
   const handleEditStudent = () => {
-    if (editStudent && name.trim() !== "" && grade.trim() !== "") {
+    if (editStudent && name.trim() !== "") {
       dispatch({ type: "EDIT_STUDENT", id: editStudent.id, name, grade });
       setEditStudent(null);
       setName("");
@@ -86,11 +86,23 @@ const StudentApp = () => {
           placeholder="Tên sinh viên"
         />
         <input
-          ref={gradeRef}
           type="number"
           value={grade}
-          onChange={(e) => setGrade(e.target.value)}
-          placeholder="Điểm"
+          onChange={(e) => {
+            let value = e.target.value;
+            if (value === "") {
+              setGrade("");
+              return;
+            }
+            let numericValue = parseFloat(value);
+            if (!Number.isNaN(numericValue) && numericValue >= 0 && numericValue <= 10) {
+              setGrade(numericValue);
+            }
+          }}
+          placeholder="Điểm (0 - 10)"
+          min="0"
+          max="10"
+          step="0.1"
         />
         {editStudent ? (
           <button onClick={handleEditStudent}>Sửa điểm</button>
