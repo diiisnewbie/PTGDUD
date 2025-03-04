@@ -1,23 +1,12 @@
-import { Link } from "react-router-dom";
-
-const users = [
-  { id: 1, name: "John Doe" },
-  { id: 2, name: "Jane Smith" },
-];
-
+import UserList from "../components/UserList";
+import ShowUserNotExist from "../components/ShowUserNotExist";
 function Home() {
   return (
     <div>
-      <h1>Danh sách người dùng</h1>
-      <ul>
-        {users.map((user) => (
-          <li key={user.id}>
-            <Link to={`/user/${user.id}`}>{user.name}</Link>
-          </li>
-        ))}
-      </ul>
+      <h1 className="text-center text-primary">Danh sách người dùng</h1>
+      <ShowUserNotExist></ShowUserNotExist>
+      <UserList />
     </div>
   );
 }
-
-export default Home;
+export default Home

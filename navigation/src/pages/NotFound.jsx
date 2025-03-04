@@ -1,6 +1,6 @@
+import React from "react";
+
 function NotFound() {
-    return <h2>404 - Không tìm thấy trang</h2>;
-  }
-  
-  export default NotFound;
-  
+  return <h1>404 - Trang không tồn tại!</h1>;
+}
+export default NotFound;

@@ -1,0 +1,63 @@
+/* UserDetail.css */
+
+/* Căn giữa nội dung */
+.container {
+    max-width: 600px;
+    margin-top: 50px;
+  }
+  
+  /* Tạo kiểu đẹp cho card */
+  .card {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Card header */
+  .card-header {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 2px solid #0069d9;
+  }
+  
+  /* Card body */
+  .card-body {
+    padding: 30px;
+    background-color: #f8f9fa;
+  }
+  
+  .card-body p {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  
+  /* Nút quay lại */
+  .card-footer {
+    background-color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .btn-primary {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Thông báo khi không có người dùng */
+  h2 {
+    font-size: 22px;
+    color: #dc3545;
+    margin-top: 30px;
+  }
+  
